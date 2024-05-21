@@ -21,3 +21,42 @@ MY FRONTENT TEMPLATE 기반 canvas api 및 web worker 테스트 프로젝트입�
 - Refactor : 기존 코드 리팩토링
 - Test : 테스트 작업
 - Chore : 기타 잡무
+
+### VSCODE 기능 관련
+
+- user snippet (File > Preferences > Configure User Snippets)
+
+```json
+{
+	"Functional Component": {
+		"prefix": "tsfc",
+		"body": [
+			"import React from 'react'",
+			"",
+			"type ${TM_FILENAME_BASE}Props = {}",
+			"",
+			"export const ${TM_FILENAME_BASE}: React.FC<${TM_FILENAME_BASE}Props> = (props) => {",
+			"\tconst {} = props;",
+			"",
+			"\treturn <div></div>;",
+			"}",
+			"",
+		],
+		"description": "Functional Component"
+	},
+	"Functional Component without Props": {
+		"prefix": "tsfcp",
+		"body": [
+			"import React from 'react'",
+			"",
+			"export const ${TM_FILENAME_BASE}: React.FC = () => {",
+			"\treturn <div></div>;",
+			"}",
+			"",
+		],
+		"description": "Functional Component"
+	}
+}
+```
+
+
