@@ -19,9 +19,16 @@ module.exports = {
       {
         groups: [
           // Packages `react` related packages come first.
-          ["^react", "^@?\\w"],
+          ["^react", "^@react"],
           // Internal packages.
-          ["^(@|components)(/.*|$)"],
+          [
+            "^@app",
+            "^@pages",
+            "^@widgets",
+            "^@features",
+            "^@entities",
+            "^@shared",
+          ],
           // Side effect imports.
           ["^\\u0000"],
           // Parent imports. Put `..` last.
