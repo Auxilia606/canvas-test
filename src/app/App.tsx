@@ -1,9 +1,13 @@
 import React from "react";
 
-import { RouterProvider } from "./provider";
+import { RecoilProvider, RouterProvider } from "./provider";
 
 const App: React.FC = () => {
-  return <RouterProvider />;
+  return (
+    <RecoilProvider>
+      <RouterProvider />
+    </RecoilProvider>
+  );
 };
 
 export default App;
