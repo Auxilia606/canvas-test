@@ -10,6 +10,20 @@ export const Canvas: React.FC = () => {
     setCanvasRef(canvasRef);
   }, [setCanvasRef]);
 
+  useEffect(() => {
+    if (!canvasRef.current || state.workers.length === 0) return;
+
+    const offscreenCanvas = canvasRef.current?.transferControlToOffscreen();
+
+    state.workers[0].postMessage(
+      {
+        type: "init",
+        canvas: offscreenCanvas,
+      },
+      [offscreenCanvas]
+    );
+  }, [state.workers]);
+
   return (
     <canvas
       onClick={() => {
@@ -25,9 +39,7 @@ export const Canvas: React.FC = () => {
         );
       }}
       ref={canvasRef}
-      width="1080px"
-      height="640px"
-      className="bg-slate-500"
+      style={{ border: "1px solid black" }}
     />
   );
 };
